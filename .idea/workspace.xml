@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50decd2f-f581-4f57-b502-034e24a2250c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Module 4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wifi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/validationData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wifi" beforeDir="false" afterPath="$PROJECT_DIR$/Wifi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +22,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Wifi" />
   </component>
   <component name="RunManager">
@@ -113,22 +107,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="448" y="175" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1575905049571" />
-    <state width="1345" height="227" key="GridCell.Tab.0.bottom" timestamp="1576068757048">
+    <state width="1345" height="227" key="GridCell.Tab.0.bottom" timestamp="1576074614585">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576068757048" />
-    <state width="1345" height="227" key="GridCell.Tab.0.center" timestamp="1576068757048">
+    <state width="1345" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
+    <state width="1345" height="227" key="GridCell.Tab.0.center" timestamp="1576074614585">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576068757048" />
-    <state width="1345" height="227" key="GridCell.Tab.0.left" timestamp="1576068757048">
+    <state width="1345" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
+    <state width="1345" height="227" key="GridCell.Tab.0.left" timestamp="1576074614585">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576068757048" />
-    <state width="1345" height="227" key="GridCell.Tab.0.right" timestamp="1576068757048">
+    <state width="1345" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
+    <state width="1345" height="227" key="GridCell.Tab.0.right" timestamp="1576074614585">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576068757048" />
+    <state width="1345" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
     <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1576000881899">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

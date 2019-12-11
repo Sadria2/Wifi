@@ -1,4 +1,5 @@
 import pandas as pd
+import warnings
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.ensemble import RandomForestClassifier
@@ -10,6 +11,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import r2_score
 from math import sqrt
+
+warnings.filterwarnings("ignore")
 
 data = pd.read_csv("trainingData.csv")
 data2 = pd.read_csv("validationData.csv")
@@ -52,16 +55,29 @@ depVarsname = ["Longitude", "Latitude"]
 depVarsclassname = ["Floor", "Building"]
 ''' print(depVar) '''
 
+print('----Starting the model----')
+
 # tuning the random forest
 modelRF = RandomForestRegressor()
 modelRFClass = RandomForestClassifier()
 
 for x in range(len(depVarsclass)):
-    print('s')
+
+    # Classifications predictions Knn
+    print('Predicting ' + str(depVarsclassname[x]) + ' in Random forest "Classifier"...')
     modelRFClass.fit(features, depVarsclass[x])
     predictions = modelRFClass.predict(features2)
     accuracy = accuracy_score(depVarsclass2[x], predictions)
-    print(accuracy)
+    print('Accuracy: %.3f' % accuracy)
+    print(' ')
+    # Classifications predictions Knn
+    print('Predicting ' + str(depVarsclassname[x]) + ' in knn "Classifier"...')
+    regressor = KNeighborsClassifier(n_neighbors=5)
+    regressor.fit(features, depVarsclass[x])
+    y_pred = regressor.predict(features2)
+    accuracy = accuracy_score(depVarsclass2[x], y_pred)
+    print('Accuracy: %.3f' % accuracy)
+    print('----')
 
 for i in range(len(depVars)):
 
@@ -69,29 +85,29 @@ for i in range(len(depVars)):
     ''' print(cross_val_score(modelRF, features, depVar))
     print(modelRF.score(features, depVar)) '''
 
-    # Make predictions RF
+    # Regressive predictions RF
+    print('Predicting ' + str(depVarsname[i]) + ' in Random forest "Regressor"...')
     predictions = modelRF.predict(features2)
     predRsquared = r2_score(depVars2[i], predictions)
     rmse = sqrt(mean_squared_error(depVars2[i], predictions))
     mae = mean_absolute_error(depVars2[i], predictions)
-    print(str(depVarsname[i]) + ' in Random forest "Regressor"')
     print('R Squared: %.3f' % predRsquared)
     print('RMSE: %.3f' % rmse)
     print('MAE: %.3f' % mae)
-
-    # Make predictions knn
+    print(' ')
+    # Regressive predictions knn
+    print('Predicting ' + str(depVarsname[i]) + ' in knn "Regressor"...')
     regressor = KNeighborsRegressor(n_neighbors=5)
     regressor.fit(features, depVars[i])
     y_pred = regressor.predict(features2)
     predRsquared2 = r2_score(depVars2[i], y_pred)
     rmse2 = sqrt(mean_squared_error(depVars2[i], y_pred))
     mae2 = mean_absolute_error(depVars2[i], y_pred)
-    print(str(depVarsname[i]) + ' in knn "Regressor"')
     print('R Squared: %.3f' % predRsquared2)
     print('RMSE: %.3f' % rmse2)
     print('MAE: %.3f' % mae2)
     print('----')
-    print('----')
+
 
 
 
