@@ -1,0 +1,101 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import r2_score
+from math import sqrt
+
+data = pd.read_csv("trainingData.csv")
+data2 = pd.read_csv("validationData.csv")
+# Following code prints all the columns
+''' print(data.columns) '''
+
+# Following code removes all the duplicates
+data.drop_duplicates()
+data2.drop_duplicates()
+# Following code creates a data frame with the non-waps
+nonwaps = data[['LONGITUDE', 'LATITUDE', 'FLOOR', 'BUILDINGID', 'SPACEID', 'RELATIVEPOSITION', 'USERID', 'PHONEID', 'TIMESTAMP' ]]
+nonwaps2 = data2[['LONGITUDE', 'LATITUDE', 'FLOOR', 'BUILDINGID', 'SPACEID', 'RELATIVEPOSITION', 'USERID', 'PHONEID', 'TIMESTAMP' ]]
+
+# allwaps is a dataframe with all the waps and the dependent variable 'LONGITUDE'
+allwaps = data.filter(regex=r'(WAP|LONGITUDE)')
+allwaps2 = data2.filter(regex=r'(WAP|LONGITUDE)')
+
+
+# Splitting
+# Selecting features
+features = allwaps.filter(regex='WAP')
+features2 = allwaps2.filter(regex='WAP')
+''' print(features.head) '''
+
+# Selecting the dependent variables
+depVar = data['LONGITUDE']
+depVar2 = data2['LONGITUDE']
+latVar = data['LATITUDE']
+latVar2 = data2['LATITUDE']
+floorVar = data['FLOOR']
+floorVar2 = data2['FLOOR']
+buildingVar = data['BUILDINGID']
+buildingVar2 = data2['BUILDINGID']
+
+depVars = [depVar, latVar]
+depVars2 = [depVar2, latVar2]
+depVarsclass = [floorVar, buildingVar]
+depVarsclass2 = [floorVar2, buildingVar2]
+depVarsname = ["Longitude", "Latitude"]
+depVarsclassname = ["Floor", "Building"]
+''' print(depVar) '''
+
+# tuning the random forest
+modelRF = RandomForestRegressor()
+modelRFClass = RandomForestClassifier()
+
+for x in range(len(depVarsclass)):
+    print('s')
+    modelRFClass.fit(features, depVarsclass[x])
+    predictions = modelRFClass.predict(features2)
+    accuracy = accuracy_score(depVarsclass2[x], predictions)
+    print(accuracy)
+
+for i in range(len(depVars)):
+
+    modelRF.fit(features, depVars[i])
+    ''' print(cross_val_score(modelRF, features, depVar))
+    print(modelRF.score(features, depVar)) '''
+
+    # Make predictions RF
+    predictions = modelRF.predict(features2)
+    predRsquared = r2_score(depVars2[i], predictions)
+    rmse = sqrt(mean_squared_error(depVars2[i], predictions))
+    mae = mean_absolute_error(depVars2[i], predictions)
+    print(str(depVarsname[i]) + ' in Random forest "Regressor"')
+    print('R Squared: %.3f' % predRsquared)
+    print('RMSE: %.3f' % rmse)
+    print('MAE: %.3f' % mae)
+
+    # Make predictions knn
+    regressor = KNeighborsRegressor(n_neighbors=5)
+    regressor.fit(features, depVars[i])
+    y_pred = regressor.predict(features2)
+    predRsquared2 = r2_score(depVars2[i], y_pred)
+    rmse2 = sqrt(mean_squared_error(depVars2[i], y_pred))
+    mae2 = mean_absolute_error(depVars2[i], y_pred)
+    print(str(depVarsname[i]) + ' in knn "Regressor"')
+    print('R Squared: %.3f' % predRsquared2)
+    print('RMSE: %.3f' % rmse2)
+    print('MAE: %.3f' % mae2)
+    print('----')
+    print('----')
+
+
+
+
+
+
+
