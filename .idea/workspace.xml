@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50decd2f-f581-4f57-b502-034e24a2250c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cserg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifispots.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wifi" beforeDir="false" afterPath="$PROJECT_DIR$/Wifi" afterDir="false" />
     </list>
@@ -14,16 +16,29 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UkeIahwD8yHCZ3pIw8paWb0iKv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Wifi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Module 4" is-module-sdk="true" working-directory="$PROJECT_DIR$">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Module 4" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Wifi" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -94,6 +109,9 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="79" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576066119883">
       <screen x="0" y="0" width="1366" height="768" />
@@ -103,26 +121,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="442" y="223" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1575904966217" />
-    <state x="448" y="175" key="FileChooserDialogImpl" timestamp="1575905049571">
+    <state x="417" y="145" key="EnvironmentVariablesDialog" timestamp="1576591649895">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="448" y="175" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1575905049571" />
-    <state width="1345" height="227" key="GridCell.Tab.0.bottom" timestamp="1576074614585">
+    <state x="417" y="145" key="EnvironmentVariablesDialog/0.0.1366.768@0.0.1366.768" timestamp="1576591649895" />
+    <state x="448" y="175" key="FileChooserDialogImpl" timestamp="1576591718732">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
-    <state width="1345" height="227" key="GridCell.Tab.0.center" timestamp="1576074614585">
+    <state x="448" y="175" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1576591718732" />
+    <state width="1345" height="227" key="GridCell.Tab.0.bottom" timestamp="1576597515949">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
-    <state width="1345" height="227" key="GridCell.Tab.0.left" timestamp="1576074614585">
+    <state width="1345" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
+    <state width="1345" height="227" key="GridCell.Tab.0.center" timestamp="1576597515949">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
-    <state width="1345" height="227" key="GridCell.Tab.0.right" timestamp="1576074614585">
+    <state width="1345" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
+    <state width="1345" height="227" key="GridCell.Tab.0.left" timestamp="1576597515949">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576074614585" />
+    <state width="1345" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
+    <state width="1345" height="227" key="GridCell.Tab.0.right" timestamp="1576597515949">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
     <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1576000881899">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -139,9 +161,17 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1576000881899" />
-    <state x="396" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1576054754903">
+    <state x="184" y="26" key="SettingsEditor" timestamp="1576591726595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="396" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1576054754903" />
+    <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1576591726595" />
+    <state x="396" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1576596744170">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="396" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1576596744170" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1576079622578">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1576079622578" />
   </component>
 </project>
