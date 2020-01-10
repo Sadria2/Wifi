@@ -1,7 +1,9 @@
+
 import pandas as pd
 import plotly.offline as pyo
 import plotly.graph_objects as go
 import warnings
+import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.ensemble import RandomForestClassifier
@@ -14,6 +16,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import r2_score
+from sklearn.model_selection import RandomizedSearchCV
 from math import sqrt
 
 warnings.filterwarnings("ignore")
@@ -23,141 +26,173 @@ data2 = pd.read_csv("validationData.csv")
 # Following code prints all the columns
 ''' print(data.columns) '''
 
-result = None
+
 bestresults = []
 
 
-def shouldreturn6():
-    global result
-    result = 6
-    return 7
+# def visualizations():
+
+plotdata = [go.Scatter3d(x=data2['LONGITUDE'], y=data2['LATITUDE'], z=data2['FLOOR'], mode='markers')]
+fig = go.Figure(data=plotdata)
+pyo.plot(fig, filename='wifispots.html')
 
 
-def should_print_return_of_previous_function(jay):
-    print(jay)
-    print(result)
+#def predictions(fastmode):
+
+# Following code removes all the duplicates
+data.drop_duplicates()
+data2.drop_duplicates()
+
+# Selecting features of training and testing
+features_training = data.filter(regex='WAP')
+features_testing = data2.filter(regex='WAP')
+
+# Selecting the dependent variables
+depVar = data['LONGITUDE']
+depVar2 = data2['LONGITUDE']
+latVar = data['LATITUDE']
+latVar2 = data2['LATITUDE']
+floorVar = data['FLOOR']
+floorVar2 = data2['FLOOR']
+buildingVar = data['BUILDINGID']
+buildingVar2 = data2['BUILDINGID']
+
+# The following code is to make the loop easier
+dependentVars_training_regression = [depVar, latVar]
+dependentVars_testing_regression = [depVar2, latVar2]
+dependentVars_training_classification = [floorVar, buildingVar]
+dependentVars_testing_classification = [floorVar2, buildingVar2]
+dependentVars_name_regression = ["Longitude", "Latitude"]
+dependentVars_name_classification = ["Floor", "Building"]
+''' print(depVar) '''
+
+print('----Starting the models----')
+# Normalizing the data although I see little improvement in knn
+preprocessing.normalize(data)
+preprocessing.normalize(data2)
 
 
-def visualizations():
-    # plotdata=[go.Scatter3d(x=data2['LONGITUDE'], y=data2['LATITUDE'], z=data2['FLOOR'], mode='markers')]
-    plotdata = [go.Scatter3d(x=data2['LONGITUDE'], y=data2['LATITUDE'], z=data2['FLOOR'], mode='markers')]
-    fig = go.Figure(data=plotdata)
-    pyo.plot(fig, filename='wifispots.html')
+
+# Classification models
+
+# Random Hyper-parameter Grid
+
+# Number of trees in random forest
+n_estimators = [int(x) for x in np.linspace(start=200, stop=2000, num=10)]
+# Number of features to consider at every split
+max_features = ['auto', 'sqrt']
+# Maximum number of levels in tree
+max_depth = [int(x) for x in np.linspace(10, 110, num=11)]
+max_depth.append(None)
+# Minimum number of samples required to split a node
+min_samples_split = [2, 5, 10]
+# Minimum number of samples required at each leaf node
+min_samples_leaf = [1, 2, 4]
+# Method of selecting samples for training each tree
+bootstrap = [True, False]
+# Create the random grid
+random_grid = {'n_estimators': n_estimators,
+                'max_features': max_features,
+                'max_depth': max_depth,
+                'min_samples_split': min_samples_split,
+                'min_samples_leaf': min_samples_leaf,
+                'bootstrap': bootstrap}
+print(random_grid)
+
+# Random search training
 
 
-def predictions():
-    # Following code removes all the duplicates
-    data.drop_duplicates()
-    data2.drop_duplicates()
+# Need some tuning for the random forest?
+modelRF_Regression = RandomForestRegressor()
+modelRFClassification = RandomForestClassifier()
+modelRFClassification_random = RandomizedSearchCV(estimator = modelRFClassification, param_distributions = random_grid, n_iter = 10, cv = 3, verbose=2, random_state=42, n_jobs = -1)
 
-    # Selecting features of training and testing
-    features_training = data.filter(regex='WAP')
-    features_testing = data2.filter(regex='WAP')
 
-    # Selecting the dependent variables
-    depVar = data['LONGITUDE']
-    depVar2 = data2['LONGITUDE']
-    latVar = data['LATITUDE']
-    latVar2 = data2['LATITUDE']
-    floorVar = data['FLOOR']
-    floorVar2 = data2['FLOOR']
-    buildingVar = data['BUILDINGID']
-    buildingVar2 = data2['BUILDINGID']
+# Need some tuning for the knn?
+classifier = KNeighborsClassifier(n_neighbors=5)
+regressor = KNeighborsRegressor(n_neighbors=5)
 
-    # The following code is to make the loop easier
-    dependentVars_training_regression = [depVar, latVar]
-    dependentVars_testing_regression = [depVar2, latVar2]
-    dependentVars_training_classification = [floorVar, buildingVar]
-    dependentVars_testing_classification = [floorVar2, buildingVar2]
-    dependentVars_name_regression = ["Longitude", "Latitude"]
-    dependentVars_name_classification = ["Floor", "Building"]
-    ''' print(depVar) '''
-
-    print('----Starting the models----')
-
-    # Need some tuning for the random forest?
-    modelRF_Regression = RandomForestRegressor()
-    modelRFClassification = RandomForestClassifier()
-
-    # Need some tuning for the knn?
-    classifier = KNeighborsClassifier(n_neighbors=5)
-    regressor = KNeighborsRegressor(n_neighbors=5)
-
-    # Need some tuning for the xgboost
-    xg_classifier = xgb.XGBClassifier(objective='reg:linear', colsample_bytree=0.3, learning_rate=0.1,
+# Need some tuning for the xgboost
+xg_classifier = xgb.XGBClassifier(objective='reg:linear', colsample_bytree=0.3, learning_rate=0.1,
                                       max_depth=5, alpha=10, n_estimators=10)
 
-    # Classification models
-    for x in range(len(dependentVars_training_classification)):
-        # Classifications predictions Random Forest
-        print('Predicting ' + str(dependentVars_name_classification[x]) + ' in Random forest "Classifier"...')
-        modelRFClassification.fit(features_training, dependentVars_training_classification[x])
-        predictions = modelRFClassification.predict(features_testing)
-        accuracy = accuracy_score(dependentVars_testing_classification[x], predictions)
-        print('Accuracy: %.3f' % accuracy)
-        print(' ')
-        bestresults.extend([predictions])
 
-        # Classifications predictions Knn
-        print('Predicting ' + str(dependentVars_name_classification[x]) + ' in knn "Classifier"...')
-        classifier.fit(features_training, dependentVars_training_classification[x])
-        y_pred = classifier.predict(features_testing)
-        accuracy = accuracy_score(dependentVars_testing_classification[x], y_pred)
-        print('Accuracy: %.3f' % accuracy)
-        print(' ')
-
-        # Classifications predictions in xgboost
-        print('Predicting ' + str(dependentVars_name_classification[x]) + ' in xgboost "Classifier"...')
-        xg_classifier.fit(features_training, dependentVars_training_classification[x])
-        preds = xg_classifier.predict(features_testing)
-        accuracy = accuracy_score(dependentVars_testing_classification[x], preds)
-        print('Accuracy: %.3f' % accuracy)
-        print('----')
-    # Regression models
-    for i in range(len(dependentVars_training_regression)):
-        modelRF_Regression.fit(features_training, dependentVars_training_regression[i])
-        ''' print(cross_val_score(modelRF, features, depVar))
-        print(modelRF.score(features, depVar)) '''
-
-        # Regressive predictions RF
-        print('Predicting ' + str(dependentVars_name_regression[i]) + ' in Random forest "Regressor"...')
-        predictions = modelRF_Regression.predict(features_testing)
-        predRsquared = r2_score(dependentVars_testing_regression[i], predictions)
-        rmse = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
-        mae = mean_absolute_error(dependentVars_testing_regression[i], predictions)
-        print('R Squared: %.3f' % predRsquared)
-        print('RMSE: %.3f' % rmse)
-        print('MAE: %.3f' % mae)
-        print(' ')
-        # Regressive predictions knn
-        print('Predicting ' + str(dependentVars_name_regression[i]) + ' in knn "Regressor"...')
-        regressor.fit(features_training, dependentVars_training_regression[i])
-        predictions = regressor.predict(features_testing)
-        predRsquared2 = r2_score(dependentVars_testing_regression[i], predictions)
-        rmse2 = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
-        mae2 = mean_absolute_error(dependentVars_testing_regression[i], predictions)
-        print('R Squared: %.3f' % predRsquared2)
-        print('RMSE: %.3f' % rmse2)
-        print('MAE: %.3f' % mae2)
-        print('----')
-        print(i)
-        bestresults.extend([predictions])
+for x in range(len(dependentVars_training_classification)):
+    fastmode = True
+    # Classifications predictions Random Forest
+    print('Predicting ' + str(dependentVars_name_classification[x]) + ' in Random forest "Classifier"...')
+    modelRFClassification.fit(features_training, dependentVars_training_classification[x])
+    predictions = modelRFClassification.predict(features_testing)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], predictions)
+    print('Accuracy: %.3f' % accuracy)
+    print(' ')
+    bestresults.extend([predictions])
 
 
-def predictedvisualizations():
-    plotdata = [go.Scatter3d(x=bestresults[2], y=bestresults[3], z=bestresults[0], mode='markers')]
-    fig = go.Figure(data=plotdata)
-    pyo.plot(fig, filename='wifispotspredicted.html')
+    # Cross-validation in classification knn
+    if not fastmode:
+        print('Cross-validating...')
+        print('Mean Cross-validated accuracy in training: %.3f' % cross_val_score(classifier, features_training, dependentVars_training_classification[x], cv=10, scoring='accuracy').mean())
+        print('')
+
+    # Classifications predictions Knn
+    print('Predicting ' + str(dependentVars_name_classification[x]) + ' in knn "Classifier"...')
+    classifier.fit(features_training, dependentVars_training_classification[x])
+    y_pred = classifier.predict(features_testing)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], y_pred)
+    print('Accuracy: %.3f' % accuracy)
+    print(' ')
+
+    # Classifications predictions in xgboost
+    print('Predicting ' + str(dependentVars_name_classification[x]) + ' in xgboost "Classifier"...')
+    xg_classifier.fit(features_training, dependentVars_training_classification[x])
+    preds = xg_classifier.predict(features_testing)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], preds)
+    print('Accuracy: %.3f' % accuracy)
+    print('----')
+# Regression models
+for i in range(len(dependentVars_training_regression)):
+    modelRF_Regression.fit(features_training, dependentVars_training_regression[i])
+    ''' print(cross_val_score(modelRF, features, depVar))
+    print(modelRF.score(features, depVar)) '''
+
+    # Regressive predictions RF
+    print('Predicting ' + str(dependentVars_name_regression[i]) + ' in Random forest "Regressor"...')
+    predictions = modelRF_Regression.predict(features_testing)
+    predRsquared = r2_score(dependentVars_testing_regression[i], predictions)
+    rmse = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
+    mae = mean_absolute_error(dependentVars_testing_regression[i], predictions)
+    print('R Squared: %.3f' % predRsquared)
+    print('RMSE: %.3f' % rmse)
+    print('MAE: %.3f' % mae)
+    print(' ')
+    # Regressive predictions knn
+    print('Predicting ' + str(dependentVars_name_regression[i]) + ' in knn "Regressor"...')
+    regressor.fit(features_training, dependentVars_training_regression[i])
+    predictions = regressor.predict(features_testing)
+    predRsquared2 = r2_score(dependentVars_testing_regression[i], predictions)
+    rmse2 = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
+    mae2 = mean_absolute_error(dependentVars_testing_regression[i], predictions)
+    print('R Squared: %.3f' % predRsquared2)
+    print('RMSE: %.3f' % rmse2)
+    print('MAE: %.3f' % mae2)
+    print('----')
+    print(i)
+    bestresults.extend([predictions])
+
+
+# def predictedvisualizations():
+plotdata = [go.Scatter3d(x=bestresults[2], y=bestresults[3], z=bestresults[0], mode='markers')]
+fig = go.Figure(data=plotdata)
+pyo.plot(fig, filename='wifispotspredicted.html')
+
+
+# Crafting table
 
 
 # visualizations()
-predictions()
+# predictions(fastmode=True)
 # predictedvisualizations()
-
-
-# shouldreturn6()
-# hay = shouldreturn6()
-# should_print_return_of_previous_function(hay)
 
 
 

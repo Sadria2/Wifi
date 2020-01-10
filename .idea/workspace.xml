@@ -2,15 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50decd2f-f581-4f57-b502-034e24a2250c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cserg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wifispots.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/sergi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BestWifi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Latitudeandlongitude_with_RF_floorandbuilding_with_knn.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RandomForestandknnsearchgridCV" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RandomForestandknnsearchgridCV.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TEST_DATA.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cascade_xgb_hyperp_knn.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/predictions_1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validationData1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xenia.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Module 4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Module 4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wifi" beforeDir="false" afterPath="$PROJECT_DIR$/Wifi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainingData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainingData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validationData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/validationData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wifispots.html" beforeDir="false" afterPath="$PROJECT_DIR$/wifispots.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wifispotspredicted.html" beforeDir="false" afterPath="$PROJECT_DIR$/wifispotspredicted.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,13 +46,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -41,19 +65,19 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Wifi" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="BestWifi" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Module 4" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/miniconda3/envs/Ubiqum/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Wifi" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BestWifi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -96,6 +120,10 @@
       </list>
     </option>
   </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -113,65 +141,121 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="79" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576066119883">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="496" y="225" key="#Inspections" timestamp="1576666297546">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="496" y="225" key="#Inspections/0.0.1792.1120@0.0.1792.1120" timestamp="1576666297546" />
+    <state x="104" y="82" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578481307914">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="79" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1576066119883" />
+    <state x="104" y="82" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1578481307914" />
+    <state x="104" y="103" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1576629409753" />
     <state x="442" y="223" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575904966217">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="442" y="223" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1575904966217" />
+    <state x="823" y="320" key="#xdebugger.XInspectDialog" timestamp="1576856277218">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="823" y="320" key="#xdebugger.XInspectDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1576856277218" />
+    <state x="599" y="154" key="CommitChangelistDialog2" timestamp="1578648457118">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="599" y="154" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1578648457118" />
     <state x="417" y="145" key="EnvironmentVariablesDialog" timestamp="1576591649895">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="417" y="145" key="EnvironmentVariablesDialog/0.0.1366.768@0.0.1366.768" timestamp="1576591649895" />
-    <state x="448" y="175" key="FileChooserDialogImpl" timestamp="1576591718732">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="588" y="273" key="FileChooserDialogImpl" timestamp="1576629461819">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="448" y="175" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1576591718732" />
-    <state width="1345" height="227" key="GridCell.Tab.0.bottom" timestamp="1576597515949">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="588" y="273" key="FileChooserDialogImpl/0.23.1792.1097@0.23.1792.1097" timestamp="1576629461819" />
+    <state width="1771" height="302" key="GridCell.Tab.0.bottom" timestamp="1578571798924">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1345" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
-    <state width="1345" height="227" key="GridCell.Tab.0.center" timestamp="1576597515949">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="317" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1578477549600" />
+    <state width="1771" height="302" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1578571798924" />
+    <state width="1771" height="302" key="GridCell.Tab.0.center" timestamp="1578571798923">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1345" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
-    <state width="1345" height="227" key="GridCell.Tab.0.left" timestamp="1576597515949">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="317" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1578477549599" />
+    <state width="1771" height="302" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1578571798923" />
+    <state width="1771" height="302" key="GridCell.Tab.0.left" timestamp="1578571798923">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1345" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
-    <state width="1345" height="227" key="GridCell.Tab.0.right" timestamp="1576597515949">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="317" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1578477549599" />
+    <state width="1771" height="302" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1578571798923" />
+    <state width="1771" height="302" key="GridCell.Tab.0.right" timestamp="1578571798924">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1345" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576597515949" />
-    <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1576000881899">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="317" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1578477549600" />
+    <state width="1771" height="302" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1578571798924" />
+    <state width="1771" height="391" key="GridCell.Tab.1.bottom" timestamp="1576862719247">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576000881899" />
-    <state width="1323" height="238" key="GridCell.Tab.1.center" timestamp="1576000881899">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="391" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1576856166231" />
+    <state width="1771" height="391" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1576862719247" />
+    <state width="1771" height="391" key="GridCell.Tab.1.center" timestamp="1576862719246">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1576000881899" />
-    <state width="1323" height="238" key="GridCell.Tab.1.left" timestamp="1576000881899">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="391" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1576856166230" />
+    <state width="1771" height="391" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1576862719246" />
+    <state width="1771" height="391" key="GridCell.Tab.1.left" timestamp="1576862719246">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1576000881899" />
-    <state width="1323" height="238" key="GridCell.Tab.1.right" timestamp="1576000881899">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="391" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1576856166230" />
+    <state width="1771" height="391" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1576862719246" />
+    <state width="1771" height="391" key="GridCell.Tab.1.right" timestamp="1576862719246">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1576000881899" />
-    <state x="184" y="26" key="SettingsEditor" timestamp="1576591726595">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1771" height="391" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1576856166231" />
+    <state width="1771" height="391" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1576862719246" />
+    <state x="675" y="294" key="RollbackChangesDialog" timestamp="1576628463160">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="675" y="294" key="RollbackChangesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1576628463160" />
+    <state x="521" y="303" key="SettingsEditor" timestamp="1578477128697">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1576591726595" />
-    <state x="396" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1576596744170">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="521" y="303" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1578477128697" />
+    <state x="521" y="320" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1576843239187" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1576627347253">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1792.1097@0.23.1792.1097" timestamp="1576627347253" />
+    <state width="896" height="549" key="XDebugger.FullValuePopup" timestamp="1578581241746">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="896" height="560" key="XDebugger.FullValuePopup/0.0.1792.1120@0.0.1792.1120" timestamp="1578480513756" />
+    <state width="896" height="549" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1578581241746" />
+    <state x="556" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1578646767447">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="396" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1576596744170" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1576079622578">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="519" y="351" key="com.intellij.ide.util.TipDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1578566395529" />
+    <state x="519" y="367" key="com.intellij.ide.util.TipDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1578589196810" />
+    <state x="556" y="354" key="com.intellij.ide.util.TipDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1578646767447" />
+    <state x="512" y="271" width="700" height="542" key="recent.locations.popup" timestamp="1578476648157">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="512" y="271" width="700" height="542" key="recent.locations.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1578476648157" />
+    <state x="512" y="288" width="700" height="530" key="recent.locations.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1576628894271" />
+    <state x="454" y="150" width="882" height="969" key="search.everywhere.popup" timestamp="1578569214343">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1576079622578" />
+    <state x="454" y="130" width="882" height="989" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1576855667533" />
+    <state x="454" y="150" width="882" height="969" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1578569214343" />
   </component>
 </project>
