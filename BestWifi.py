@@ -31,11 +31,7 @@ data5 = pd.concat([data3,data4]).sample(frac=1)
 #data = data5.iloc[:16838 :,]
 #data2 = data5.iloc[:-16838 :,]
 finaldata = pd.read_csv("TEST_DATA.csv")
-datadani = pd.read_csv("cascade_xgb_hyperp_knn.csv")
-david = pd.read_csv("david.csv")
 sergi = pd.read_csv("RandomForestandknnsearchgridCV.csv")
-xenia = pd.read_csv("xenia.csv")
-david = pd.read_csv("predictions_1.csv")
 bestresults = []
 
 
@@ -153,12 +149,12 @@ for x in range(len(dependentVars_training_classification)):
     else:
         modelRFClassification.fit(features_training, dependentVars_training_classification[x])
     if dependentVars_name_classification[x]== 'Floor':
-        predictions = modelRFClassification_bestparam.predict(finaldata_features_testing)
+        predictions = modelRFClassification_bestparam.predict(features_testing)
     else:
-        predictions = modelRFClassification.predict(finaldata_features_testing)
-    #accuracy = accuracy_score(dependentVars_testing_classification[x], predictions)
-    #print('Accuracy: %.3f' % accuracy)
-    #print(' ')
+        predictions = modelRFClassification.predict(features_testing)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], predictions)
+    print('Accuracy: %.3f' % accuracy)
+    print(' ')
     bestresults.extend([predictions])
 
 
@@ -172,16 +168,16 @@ for x in range(len(dependentVars_training_classification)):
     print('Predicting ' + str(dependentVars_name_classification[x]) + ' in knn "Classifier"...')
     classifier.fit(features_training, dependentVars_training_classification[x])
     y_pred = classifier.predict(features_testing)
-    #accuracy = accuracy_score(dependentVars_testing_classification[x], y_pred)
-    #print('Accuracy: %.3f' % accuracy)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], y_pred)
+    print('Accuracy: %.3f' % accuracy)
     print('potat')
 
     # Classifications predictions in xgboost
     print('Predicting ' + str(dependentVars_name_classification[x]) + ' in xgboost "Classifier"...')
     xg_classifier.fit(features_training, dependentVars_training_classification[x])
     preds = xg_classifier.predict(features_testing)
-    #accuracy = accuracy_score(dependentVars_testing_classification[x], preds)
-    #print('Accuracy: %.3f' % accuracy)
+    accuracy = accuracy_score(dependentVars_testing_classification[x], preds)
+    print('Accuracy: %.3f' % accuracy)
     print('----')
 # Regression models
 for i in range(len(dependentVars_training_regression)):
@@ -192,23 +188,23 @@ for i in range(len(dependentVars_training_regression)):
     # Regressive predictions RF
     print('Predicting ' + str(dependentVars_name_regression[i]) + ' in Random forest "Regressor"...')
     predictions = modelRF_Regression.predict(features_testing)
-    #predRsquared = r2_score(dependentVars_testing_regression[i], predictions)
-    #rmse = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
-    #mae = mean_absolute_error(dependentVars_testing_regression[i], predictions)
-    #print('R Squared: %.3f' % predRsquared)
-    #print('RMSE: %.3f' % rmse)
-    #print('MAE: %.3f' % mae)
-    #print(' ')
+    predRsquared = r2_score(dependentVars_testing_regression[i], predictions)
+    rmse = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
+    mae = mean_absolute_error(dependentVars_testing_regression[i], predictions)
+    print('R Squared: %.3f' % predRsquared)
+    print('RMSE: %.3f' % rmse)
+    print('MAE: %.3f' % mae)
+    print(' ')
     # Regressive predictions knn
     print('Predicting ' + str(dependentVars_name_regression[i]) + ' in knn "Regressor"...')
     regressor.fit(features_training, dependentVars_training_regression[i])
-    predictions = regressor.predict(finaldata_features_testing)
-    #predRsquared2 = r2_score(dependentVars_testing_regression[i], predictions)
-    #rmse2 = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
-    #mae2 = mean_absolute_error(dependentVars_testing_regression[i], predictions)
-    #print('R Squared: %.3f' % predRsquared2)
-    #print('RMSE: %.3f' % rmse2)
-    #print('MAE: %.3f' % mae2)
+    predictions = regressor.predict(features_testing)
+    predRsquared2 = r2_score(dependentVars_testing_regression[i], predictions)
+    rmse2 = sqrt(mean_squared_error(dependentVars_testing_regression[i], predictions))
+    mae2 = mean_absolute_error(dependentVars_testing_regression[i], predictions)
+    print('R Squared: %.3f' % predRsquared2)
+    print('RMSE: %.3f' % rmse2)
+    print('MAE: %.3f' % mae2)
     print('----')
     print(i)
     bestresults.extend([predictions])
